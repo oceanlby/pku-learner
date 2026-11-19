@@ -1,0 +1,99 @@
+name: Transfer desktop installers to a draft release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_id:
+        description: Draft release ID
+        required: true
+        type: string
+      artifacts:
+        description: JSON with short-lived binary artifact URLs, sizes and SHA-256 digests
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  transfer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Validate and upload the installers
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import re
+          import shutil
+          import subprocess
+          import urllib.parse
+          import urllib.request
+          import zipfile
+          from pathlib import Path
+
+          def gh_json(route):
+              return json.loads(subprocess.check_output(["gh", "api", route]))
+
+          event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
+          inputs = event["inputs"]
+          repo = os.environ["GITHUB_REPOSITORY"]
+          if repo != "oceanlby/byocean" or not re.fullmatch(r"\d+", inputs["release_id"]):
+              raise SystemExit("Unexpected release destination.")
+          route = f"repos/{repo}/releases/{inputs['release_id']}"
+          release = gh_json(route)
+          tag = release["tag_name"]
+          if not release["draft"] or not re.fullmatch(r"v\d+\.\d+\.\d+", tag):
+              raise SystemExit("A versioned draft release is required.")
+          version = tag[1:]
+          names = {
+              "byocean-macOS-arm64": [f"byocean-{version}-mac-arm64.{ext}" for ext in ("dmg", "zip")],
+              "byocean-macOS-x64": [f"byocean-{version}-mac-x64.{ext}" for ext in ("dmg", "zip")],
+              "byocean-Linux-x64": [f"byocean-{version}-linux-x86_64.AppImage"],
+              "byocean-Windows-x64": [f"byocean-Setup-{version}-win-x64.exe"],
+          }
+
+          def file_digest(path):
+              with path.open("rb") as handle:
+                  return "sha256:" + hashlib.file_digest(handle, "sha256").hexdigest()
+
+          for artifact in json.loads(inputs["artifacts"]):
+              platform = artifact["name"]
+              expected = names[platform]
+              url = artifact["url"]
+              location = urllib.parse.urlparse(url)
+              if location.scheme != "https" or not location.hostname.endswith(".blob.core.windows.net"):
+                  raise SystemExit("Unexpected artifact host.")
+              print(f"::add-mask::{url}", flush=True)
+              archive = Path(os.environ["RUNNER_TEMP"], platform + ".zip")
+              try:
+                  with urllib.request.urlopen(url, timeout=60) as response, archive.open("wb") as output:
+                      shutil.copyfileobj(response, output, 1024 * 1024)
+              except Exception:
+                  raise SystemExit(f"Could not download the binary archive for {platform}.") from None
+              if archive.stat().st_size != artifact["size"] or file_digest(archive) != artifact["digest"]:
+                  raise SystemExit(f"Archive verification failed for {platform}.")
+              with zipfile.ZipFile(archive) as bundle:
+                  if sorted(bundle.namelist()) != sorted(expected):
+                      raise SystemExit(f"Unexpected contents in {platform}.")
+                  for name in expected:
+                      with bundle.open(name) as source, Path(name).open("wb") as output:
+                          shutil.copyfileobj(source, output, 1024 * 1024)
+              archive.unlink()
+              current = gh_json(route)
+              if not current["draft"] or current["tag_name"] != tag:
+                  raise SystemExit("The destination release changed.")
+              existing = {item["name"]: item for item in current["assets"]}
+              for name in expected:
+                  if name in existing:
+                      if existing[name]["digest"] != file_digest(Path(name)):
+                          raise SystemExit(f"Existing asset differs: {name}")
+                  else:
+                      subprocess.run(["gh", "release", "upload", tag, name, "--repo", repo], check=True)
+                  print(f"Verified {name}", flush=True)
+          PY
