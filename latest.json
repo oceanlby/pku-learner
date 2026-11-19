@@ -1,42 +1,42 @@
 {
-  "tag_name": "v0.7.2",
-  "body": "## PKU Learner 0.7.2\n\n- 应用、安装包和下载页统一使用 PKU Learner，并换用深红底的展开书页图标。\n- 课程同步、笔记和其他功能沿用 0.7.1。已有桌面用户可从下载页安装新版，继续使用原有资料和设置。\n\nWindows x64 使用 EXE，macOS 按芯片选择 DMG，Linux x64 使用 AppImage。可用 `SHA256SUMS.txt` 校验下载文件。",
-  "html_url": "https://github.com/oceanlby/pku-learner/releases/tag/v0.7.2",
+  "tag_name": "v0.7.3",
+  "body": "## 教学网\n\n- 课件优先从「教学内容」查找，找不到时检查「课程讲义」。规则未找到时，使用官方 DeepSeek Flash 匹配教师自定义的栏目。\n- DeepSeek 模型仅走官方 API。教学网的文本功能使用官方 DeepSeek Flash，回放语音使用硅基流动 SenseVoiceSmall 转写。\n- 转写完成后，课程的「笔记」目录会生成带时间段的独立 Markdown。实录笔记问答可勾选「同时参考本节语音转写」，点击引用可跳到对应时间段。\n- 启用视频保留选项后，下载的回放归档到课程的「视频」目录，与「课件」「作业」「笔记」并列。\n\n提供 Windows x64、macOS（Apple 芯片及 Intel）和 Linux x64 安装包。可用 SHA256SUMS.txt 核对。",
+  "html_url": "https://github.com/oceanlby/pku-learner/releases/tag/v0.7.3",
   "assets": [
     {
-      "name": "pku-learner-0.7.2-linux-x86_64.AppImage",
-      "size": 408078322,
-      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-0.7.2-linux-x86_64.AppImage"
+      "name": "pku-learner-0.7.3-linux-x86_64.AppImage",
+      "size": 408082763,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.3/pku-learner-0.7.3-linux-x86_64.AppImage"
     },
     {
-      "name": "pku-learner-0.7.2-mac-arm64.dmg",
-      "size": 316755605,
-      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-0.7.2-mac-arm64.dmg"
+      "name": "pku-learner-0.7.3-mac-arm64.dmg",
+      "size": 316760878,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.3/pku-learner-0.7.3-mac-arm64.dmg"
     },
     {
-      "name": "pku-learner-0.7.2-mac-arm64.zip",
-      "size": 317670043,
-      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-0.7.2-mac-arm64.zip"
+      "name": "pku-learner-0.7.3-mac-arm64.zip",
+      "size": 317673999,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.3/pku-learner-0.7.3-mac-arm64.zip"
     },
     {
-      "name": "pku-learner-0.7.2-mac-x64.dmg",
-      "size": 320915209,
-      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-0.7.2-mac-x64.dmg"
+      "name": "pku-learner-0.7.3-mac-x64.dmg",
+      "size": 320872186,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.3/pku-learner-0.7.3-mac-x64.dmg"
     },
     {
-      "name": "pku-learner-0.7.2-mac-x64.zip",
-      "size": 322830142,
-      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-0.7.2-mac-x64.zip"
+      "name": "pku-learner-0.7.3-mac-x64.zip",
+      "size": 322834098,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.3/pku-learner-0.7.3-mac-x64.zip"
     },
     {
-      "name": "pku-learner-Setup-0.7.2-win-x64.exe",
-      "size": 259768122,
-      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-Setup-0.7.2-win-x64.exe"
+      "name": "pku-learner-Setup-0.7.3-win-x64.exe",
+      "size": 259771374,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.3/pku-learner-Setup-0.7.3-win-x64.exe"
     },
     {
       "name": "SHA256SUMS.txt",
       "size": 596,
-      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/SHA256SUMS.txt"
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.3/SHA256SUMS.txt"
     }
   ]
 }
