@@ -1,8 +1,8 @@
-# byocean
+# PKU Learner
 
-byocean 是由 oceanlby 维护的课程与研究工作台。同步**北大教学网**的课件、作业和公告，把课堂实录整理成可复习的笔记，也可以在同一个应用里处理邮件、日历、待办和论文。
+PKU Learner 是由 oceanlby 维护的北大课程学习助手。同步**北大教学网**的课件、作业和公告，把课堂实录整理成可复习的笔记，也可以在同一个应用里处理邮件、日历、待办和论文。
 
-[官网下载](https://oceanlby.github.io/byocean/#download) · [发布记录](https://github.com/oceanlby/byocean/releases)
+[官网下载](https://oceanlby.github.io/pku-learner/#download) · [发布记录](https://github.com/oceanlby/pku-learner/releases)
 
 ## 北大教学网
 
@@ -21,6 +21,6 @@ byocean 是由 oceanlby 维护的课程与研究工作台。同步**北大教学
 
 从 0.6.11 起，Windows x64、macOS（Apple 芯片和 Intel）及 Linux x64 均支持教学网。Linux 需启用并解锁系统密钥环来保存登录信息。
 
-1. 在[下载页](https://oceanlby.github.io/byocean/#download)选择对应平台的 EXE、DMG 或 AppImage。
+1. 在[下载页](https://oceanlby.github.io/pku-learner/#download)选择对应平台的 EXE、DMG 或 AppImage。
 2. 在「设置 → 教学网」登录自己的校园卡账号并选择资料保存位置。
 3. 在「设置 → AI 模型」配置硅基流动中国站和 DeepSeek。回放音频按段发送到硅基流动，笔记和公告摘要使用 DeepSeek Flash，扫描课件和视频关键画面在本机识别。

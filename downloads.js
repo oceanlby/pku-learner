@@ -1,4 +1,4 @@
-const host = 'https://github.com/oceanlby/byocean';
+const host = 'https://github.com/oceanlby/pku-learner';
 const panel = document.getElementById('release');
 
 function node(tag, text, className) {

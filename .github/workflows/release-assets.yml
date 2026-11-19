@@ -43,7 +43,7 @@ jobs:
           event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
           inputs = event["inputs"]
           repo = os.environ["GITHUB_REPOSITORY"]
-          if repo != "oceanlby/byocean" or not re.fullmatch(r"\d+", inputs["release_id"]):
+          if repo != "oceanlby/pku-learner" or not re.fullmatch(r"\d+", inputs["release_id"]):
               raise SystemExit("Unexpected release destination.")
           route = f"repos/{repo}/releases/{inputs['release_id']}"
           release = gh_json(route)
@@ -52,17 +52,21 @@ jobs:
               raise SystemExit("A versioned draft release is required.")
           version = tag[1:]
           names = {
-              "byocean-macOS-arm64": [f"byocean-{version}-mac-arm64.{ext}" for ext in ("dmg", "zip")],
-              "byocean-macOS-x64": [f"byocean-{version}-mac-x64.{ext}" for ext in ("dmg", "zip")],
-              "byocean-Linux-x64": [f"byocean-{version}-linux-x86_64.AppImage"],
-              "byocean-Windows-x64": [f"byocean-Setup-{version}-win-x64.exe"],
+              "pku-learner-macOS-arm64": [f"pku-learner-{version}-mac-arm64.{ext}" for ext in ("dmg", "zip")],
+              "pku-learner-macOS-x64": [f"pku-learner-{version}-mac-x64.{ext}" for ext in ("dmg", "zip")],
+              "pku-learner-Linux-x64": [f"pku-learner-{version}-linux-x86_64.AppImage"],
+              "pku-learner-Windows-x64": [f"pku-learner-Setup-{version}-win-x64.exe"],
           }
 
           def file_digest(path):
               with path.open("rb") as handle:
                   return "sha256:" + hashlib.file_digest(handle, "sha256").hexdigest()
 
-          for artifact in json.loads(inputs["artifacts"]):
+          artifacts = json.loads(inputs["artifacts"])
+          if sorted(artifact["name"] for artifact in artifacts) != sorted(names):
+              raise SystemExit("Expected all desktop platforms exactly once.")
+          checksums = []
+          for artifact in artifacts:
               platform = artifact["name"]
               expected = names[platform]
               url = artifact["url"]
@@ -90,10 +94,24 @@ jobs:
                   raise SystemExit("The destination release changed.")
               existing = {item["name"]: item for item in current["assets"]}
               for name in expected:
+                  digest = file_digest(Path(name))
                   if name in existing:
-                      if existing[name]["digest"] != file_digest(Path(name)):
+                      if existing[name]["digest"] != digest:
                           raise SystemExit(f"Existing asset differs: {name}")
                   else:
                       subprocess.run(["gh", "release", "upload", tag, name, "--repo", repo], check=True)
+                  checksums.append(f"{digest.removeprefix('sha256:')}  {name}\n")
                   print(f"Verified {name}", flush=True)
+
+          current = gh_json(route)
+          if not current["draft"] or current["tag_name"] != tag:
+              raise SystemExit("The destination release changed.")
+          sums = Path("SHA256SUMS.txt")
+          sums.write_text("".join(sorted(checksums)), encoding="ascii")
+          existing_sums = next((item for item in current["assets"] if item["name"] == sums.name), None)
+          if existing_sums:
+              if existing_sums["digest"] != file_digest(sums):
+                  raise SystemExit("Existing checksum file differs.")
+          else:
+              subprocess.run(["gh", "release", "upload", tag, sums.name, "--repo", repo], check=True)
           PY
