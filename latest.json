@@ -1,1 +1,42 @@
-{"tag_name":null,"body":"","html_url":"https://github.com/oceanlby/pku-learner/releases","assets":[]}
+{
+  "tag_name": "v0.7.2",
+  "body": "## PKU Learner 0.7.2\n\n- 应用、安装包和下载页统一使用 PKU Learner，并换用深红底的展开书页图标。\n- 课程同步、笔记和其他功能沿用 0.7.1。已有桌面用户可从下载页安装新版，继续使用原有资料和设置。\n\nWindows x64 使用 EXE，macOS 按芯片选择 DMG，Linux x64 使用 AppImage。可用 `SHA256SUMS.txt` 校验下载文件。",
+  "html_url": "https://github.com/oceanlby/pku-learner/releases/tag/v0.7.2",
+  "assets": [
+    {
+      "name": "pku-learner-0.7.2-linux-x86_64.AppImage",
+      "size": 408078322,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-0.7.2-linux-x86_64.AppImage"
+    },
+    {
+      "name": "pku-learner-0.7.2-mac-arm64.dmg",
+      "size": 316755605,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-0.7.2-mac-arm64.dmg"
+    },
+    {
+      "name": "pku-learner-0.7.2-mac-arm64.zip",
+      "size": 317670043,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-0.7.2-mac-arm64.zip"
+    },
+    {
+      "name": "pku-learner-0.7.2-mac-x64.dmg",
+      "size": 320915209,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-0.7.2-mac-x64.dmg"
+    },
+    {
+      "name": "pku-learner-0.7.2-mac-x64.zip",
+      "size": 322830142,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-0.7.2-mac-x64.zip"
+    },
+    {
+      "name": "pku-learner-Setup-0.7.2-win-x64.exe",
+      "size": 259768122,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/pku-learner-Setup-0.7.2-win-x64.exe"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 596,
+      "browser_download_url": "https://github.com/oceanlby/pku-learner/releases/download/v0.7.2/SHA256SUMS.txt"
+    }
+  ]
+}
