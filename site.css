@@ -33,9 +33,6 @@ h2{font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.2;letter-spacing:-.045em;mar
 .screen-line{border-top:1px solid #213b51;padding-block:11px}
 .screen-line div{display:grid;gap:1px}
 .badge{border:1px solid #365465;border-radius:5px;color:#d5e9ef;padding:1px 7px;font-size:.72rem;white-space:nowrap}
-.working{color:var(--accent)}
-.screen-progress{height:4px;background:#263e53;border-radius:4px;margin:0 0 12px}
-.screen-progress i{display:block;width:58%;height:100%;background:var(--accent);border-radius:4px}
 .courses,.privacy{background:#0e2a41;border-block:1px solid var(--line)}
 .courses>.wrap,.workflow,.private-layout,.workspace,.download{padding-block:clamp(60px,8vw,103px)}
 .workspace{border-bottom:1px solid var(--line)}
