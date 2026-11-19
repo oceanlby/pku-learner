@@ -37,11 +37,11 @@ h2{font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.2;letter-spacing:-.045em;mar
 .screen-progress{height:4px;background:#263e53;border-radius:4px;margin:0 0 12px}
 .screen-progress i{display:block;width:58%;height:100%;background:var(--accent);border-radius:4px}
 .courses,.privacy{background:#0e2a41;border-block:1px solid var(--line)}
-.courses>.wrap,.workflow,.private-layout,.download{padding-block:clamp(60px,8vw,103px)}
+.courses>.wrap,.workflow,.private-layout,.workspace,.download{padding-block:clamp(60px,8vw,103px)}
+.workspace{border-bottom:1px solid var(--line)}
 .section-head{max-width:47rem;margin-bottom:32px}
 .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
 .feature-grid article{border-top:1px solid var(--line);padding:23px 0 27px}
-.feature-type{color:var(--accent);font-size:.83rem;font-weight:680}
 .feature-grid h3{margin:5px 0 5px;font-size:1.26rem}
 .feature-grid p,.workflow p:not(.eyebrow),.privacy p:not(.eyebrow),.feature-scope,.release p{color:var(--soft);margin-bottom:0}
 .workflow,.private-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px}

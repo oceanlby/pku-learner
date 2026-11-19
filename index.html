@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="byocean 是面向课程与研究的桌面工作台，可同步北大教学网资料、整理课堂回放和记录课程日程。">
+  <meta name="description" content="byocean 同步北大教学网课件和作业，整理课堂回放，提取考试与作业日程，也支持笔记、邮件和论文管理。">
   <meta name="theme-color" content="#0b2238">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="stylesheet" href="site.css">
@@ -15,6 +15,7 @@
     <a class="wordmark" href="#home"><img src="icon.png" width="36" height="36" alt="">byocean</a>
     <nav aria-label="站点导航">
       <a href="#courses">教学网</a>
+      <a href="#workspace">学习工具</a>
       <a href="#privacy">数据与隐私</a>
       <a class="nav-download" href="#download">下载</a>
     </nav>
@@ -23,8 +24,8 @@
     <section class="hero wrap" aria-labelledby="intro">
       <div class="hero-copy">
         <p class="eyebrow">课程与研究工作台</p>
-        <h1 id="intro">把学过的，<br>变成自己的。</h1>
-        <p>同步北大教学网课件与作业，将课堂回放整理成可复习的笔记。考试和截止日期，也能从教学网直接加进日历。</p>
+        <h1 id="intro">北大教学网的<br>桌面工作台</h1>
+        <p>同步课件和作业，把课堂回放整理成可复习的笔记。考试公告与作业截止日期也能从教学网加进日历。</p>
         <div class="hero-links"><a class="button primary" href="#download">查看下载 <span aria-hidden="true">↓</span></a><a href="#courses">了解教学网 <span aria-hidden="true">↗</span></a></div>
       </div>
       <aside class="preview" aria-label="教学网任务面板示意">
@@ -41,21 +42,23 @@
 
     <section id="courses" class="courses" aria-labelledby="course-heading">
       <div class="wrap">
-        <div class="section-head"><p class="eyebrow">北大教学网</p><h2 id="course-heading">按课程收好资料，把课堂整理成笔记。</h2></div>
+        <div class="section-head"><p class="eyebrow">北大教学网</p><h2 id="course-heading">从课程资料到复习笔记</h2></div>
         <div class="feature-grid">
-          <article><span class="feature-type">资料同步</span><h3>课件、作业各归其位</h3><p>选择本机保存位置，按课程组织课件、作业和笔记。默认自动同步当前学期的附件，往期资料可手动下载。</p></article>
-          <article><span class="feature-type">回放与课件</span><h3>课上讲的和课件对得上</h3><p>用转写和关键画面整理实录，搭配 PDF 课件核对内容。可为单份课件或单节实录生成独立笔记，再更新课程总笔记。</p></article>
-          <article><span class="feature-type">任务管理</span><h3>长任务有进度、有重试</h3><p>查看分片下载、转写和笔记生成的进度。可取消下载并继续处理回放，旧记录可按课程、状态和日期查找。</p></article>
-          <article><span class="feature-type">公告与作业</span><h3>需要记的时间进日历</h3><p>提炼考试公告和截止日期，为一条通知列出多项候选日程。逐项确认后加入日历，处理过的信息可以归档。</p></article>
+          <article><h3>同步课件和作业</h3><p>默认自动下载当前学期的附件，往期资料可按课程手动同步。课件、作业和笔记放在你选择的资料目录里。</p></article>
+          <article><h3>整理课堂回放</h3><p>选择回放后按需下载。结合硅基流动的语音转写、本机识别的关键画面和相关 PDF 课件整理内容。</p></article>
+          <article><h3>为每份资料留一份笔记</h3><p>单份 PDF 或单节回放可以先生成独立 Markdown 笔记，再合并同主题内容或补入课程总笔记。</p></article>
+          <article><h3>把考试和作业时间加进日历</h3><p>提炼课程公告和作业要求，列出候选日程供你逐项确认。看过的通知可在教学网里归档或忽略。</p></article>
+          <article><h3>查看下载和笔记进度</h3><p>在教学网的「任务」中查看下载、转写到生成笔记的进度。可以取消下载、重试失败任务，或按课程和状态查找记录。</p></article>
+          <article><h3>按自己的结构整理笔记</h3><p>课件笔记、实录笔记和课程总笔记都有默认模板。也可以导入自己的 Markdown 模板，规定笔记的章节和详略。</p></article>
         </div>
       </div>
     </section>
 
     <section class="wrap workflow" aria-labelledby="start-heading">
-      <div><p class="eyebrow">开始使用</p><h2 id="start-heading">先连教学网，再选一门课。</h2></div>
+      <div><h2 id="start-heading">开始使用教学网</h2></div>
       <ol>
-        <li><strong>打开「设置 → 教学网」</strong><p>使用自己的校园账号登录，选择存放课程资料的文件夹。</p></li>
-        <li><strong>在「设置 → AI 模型」配置 DeepSeek</strong><p>用自己的 API 密钥生成课件笔记、实录笔记和课程总笔记。</p></li>
+        <li><strong>打开「设置 → 教学网」</strong><p>使用自己的校园卡账号登录，选择存放课程资料的文件夹。</p></li>
+        <li><strong>在「设置 → AI 模型」配置服务</strong><p>添加硅基流动中国站的密钥用于语音转写，添加 DeepSeek 的密钥用于整理笔记和公告。</p></li>
         <li><strong>同步课程，选一份资料生成笔记</strong><p>可在「教学网 → 任务」查看下载、转写和整理各阶段的进度。</p></li>
       </ol>
     </section>
@@ -63,6 +66,16 @@
     <section id="privacy" class="privacy" aria-labelledby="privacy-heading">
       <div class="wrap private-layout"><div><p class="eyebrow">数据与隐私</p><h2 id="privacy-heading">课程资料留在你选的文件夹。</h2></div>
       <div><p>教学网登录信息加密保存在本机。扫描课件和回放关键画面在本机识别。回放音频按段发送给硅基流动中国站的 SenseVoiceSmall 转写，需要在应用内配置自己的 API 密钥。</p><p>生成笔记时，提取后的文字会发送给你配置的 DeepSeek Flash。回放视频默认在笔记保存后清理，可在设置中保留。</p></div></div>
+    </section>
+
+    <section id="workspace" class="wrap workspace" aria-labelledby="workspace-heading">
+      <div class="section-head"><h2 id="workspace-heading">日常学习与研究工具</h2></div>
+      <div class="feature-grid">
+        <article><h3>笔记和项目</h3><p>用页面写笔记、记录灵感和整理项目，也可以用语音速记。</p></article>
+        <article><h3>邮件、日历和待办</h3><p>提取邮件里的会议和截止时间，把课程安排与个人计划放在同一张日历上。</p></article>
+        <article><h3>论文和资料</h3><p>管理论文库、阅读和翻译 PDF，查找与你的研究主题相关的文献。</p></article>
+        <article><h3>终端、Git 和 Codex</h3><p>在桌面应用里使用本机终端、管理代码仓库和查看 Codex 会话。</p></article>
+      </div>
     </section>
 
     <section id="download" class="wrap download" aria-labelledby="download-heading">
