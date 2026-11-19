@@ -4,6 +4,21 @@ PKU Learner 是由 oceanlby 维护的北大课程学习助手。同步**北大�
 
 [官网下载](https://oceanlby.github.io/pku-learner/#download) · [发布记录](https://github.com/oceanlby/pku-learner/releases)
 
+## 界面预览
+
+[![PKU Learner 教学网课程页，显示已同步的 PDF 课件和生成笔记入口](screenshots/teaching-net.png)](screenshots/teaching-net.png)
+
+在「教学网」按学期和课程查看资料。选中一份 PDF，可直接在应用内打开或生成笔记。
+
+<details>
+<summary>查看「今天」、日历和邮件收件箱</summary>
+
+| 今天 | 日历 | 邮件收件箱 |
+| --- | --- | --- |
+| [![今天页面的本周安排和任务入口](screenshots/today.png)](screenshots/today.png) | [![日历周视图和课表入口](screenshots/calendar.png)](screenshots/calendar.png) | [![邮件收件箱的分类和简报入口](screenshots/inbox.png)](screenshots/inbox.png) |
+
+</details>
+
 ## 北大教学网
 
 - **同步课件和作业**。默认自动下载当前学期的附件，往期资料可手动同步。课件、作业和笔记按课程保存在你选的文件夹。
