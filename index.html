@@ -3,91 +3,92 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="PKU Learner 同步北大教学网课件和作业，整理课堂回放，提取考试与作业日程，也支持笔记、邮件和论文管理。">
-  <meta name="theme-color" content="#0b2238">
+  <meta name="description" content="PKU Learner 是永久免费的北大课程学习助手。同步教学网课件和作业，按学期查找资料，把课堂回放整理成可阅读、可追问的笔记。支持 Windows、macOS 和 Linux。">
+  <meta name="theme-color" content="#faf9f7">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="stylesheet" href="site.css">
   <script type="module" src="downloads.js"></script>
-  <title>PKU Learner · 北大课程学习助手</title>
+  <script type="module" src="gallery.js"></script>
+  <title>PKU Learner · 永久免费的北大课程学习助手</title>
 </head>
 <body>
-  <header class="bar">
-    <a class="wordmark" href="#home"><img src="icon.png" width="36" height="36" alt="">PKU Learner</a>
+  <a class="skip-link" href="#home">跳到正文</a>
+  <header class="bar wrap">
+    <a class="wordmark" href="#home"><img src="icon.png" width="40" height="40" alt="">PKU Learner</a>
     <nav aria-label="站点导航">
-      <a href="#courses">教学网</a>
-      <a href="#workspace">学习工具</a>
-      <a href="#privacy">数据与隐私</a>
-      <a class="nav-download" href="#download">下载</a>
+      <a href="#courses">教学网</a><a href="#workspace">学习工具</a><a href="#privacy">使用说明</a><a class="nav-download" href="#download">下载</a>
     </nav>
   </header>
   <main id="home">
     <section class="hero wrap" aria-labelledby="intro">
-      <div class="hero-copy">
-        <p class="eyebrow">课程与研究工作台</p>
-        <h1 id="intro">北大教学网的<br>桌面工作台</h1>
-        <p>同步课件和作业，把课堂回放整理成可复习的笔记。考试公告与作业截止日期也能从教学网加进日历。</p>
-        <div class="hero-links"><a class="button primary" href="#download">查看下载 <span aria-hidden="true">↓</span></a><a href="#courses">了解教学网 <span aria-hidden="true">↗</span></a></div>
+      <div class="hero-heading">
+        <p class="kicker">北大教学网桌面助手</p>
+        <h1 id="intro">课件、回放和笔记，<br><em>按课程收好。</em></h1>
       </div>
-      <a class="preview" href="screenshots/teaching-net.png">
-        <img src="screenshots/teaching-net.png" width="3066" height="1782" alt="教学网课程页，展示学期选择、已同步的 PDF 课件和生成笔记入口">
-        <span class="preview-caption"><strong>教学网课程资料</strong><span>查看大图 <span aria-hidden="true">↗</span></span></span>
-      </a>
+      <div class="hero-description">
+        <p>同步北大教学网的课程资料，把一节回放整理成笔记。复习时，既能跨课程找讲义，也能回到老师讲过的那段原话。</p>
+        <div class="hero-actions"><a id="hero-download" class="button primary" href="#download">下载桌面版</a><strong class="price">永久免费</strong></div>
+        <p class="hero-platforms">Windows、macOS 和 Linux <a href="#download">所有安装包</a></p>
+        <p class="hero-cost">选用 AI 功能时使用自己的 API Key，费用由服务商决定。</p>
+      </div>
     </section>
 
-    <section id="courses" class="courses" aria-labelledby="course-heading">
-      <div class="wrap">
-        <div class="section-head"><p class="eyebrow">北大教学网</p><h2 id="course-heading">从课程资料到复习笔记</h2></div>
-        <div class="feature-grid">
-          <article><h3>同步课件和作业</h3><p>先从「教学内容」找课件，再查「课程讲义」。默认自动下载当前学期的附件，往期资料可按课程手动同步。</p></article>
-          <article><h3>整理课堂回放</h3><p>回放按需下载，语音转写独立保存为带时间段的 Markdown。选择保留回放时，视频会存入对应课程的「视频」目录。</p></article>
-          <article><h3>读课件、问笔记</h3><p>在应用内阅读 PDF 和 Markdown，选中文字向 AI 提问。实录笔记可选择同时参考本节语音转写，点击引用可跳到对应时间段的转写文字。</p></article>
-          <article><h3>把考试和作业时间加进日历</h3><p>提炼课程公告和作业要求，列出候选日程供你逐项确认。看过的通知可在教学网里归档或忽略。</p></article>
+    <section id="courses" class="showcase wrap" aria-label="教学网界面预览">
+      <div class="showcase-top">
+        <div class="showcase-title"><span class="edition">0.7.4</span><h2>教学网界面</h2></div>
+        <div class="shot-switch" role="group" aria-label="选择教学网截图">
+          <a class="active" href="screenshots/teaching-library-074.webp" aria-current="true" data-shot="library">课程资料库</a>
+          <a href="screenshots/teaching-search-074.webp" data-shot="search">跨课搜索</a>
+          <a href="screenshots/teaching-reader-074.webp" data-shot="reader">笔记阅读</a>
+          <a href="screenshots/teaching-history-074.webp" data-shot="history">任务历史</a>
         </div>
       </div>
+      <figure class="product-figure">
+        <a id="shot-full" class="main-shot" href="screenshots/teaching-library-074.webp" aria-label="查看课程资料库原图">
+          <img id="product-shot" src="screenshots/teaching-library-074.webp" width="1316" height="906" alt="PKU Learner 教学网的学期选择、课程导航和当前课程资料">
+        </a>
+        <figcaption><p id="shot-description" aria-live="polite">置顶常用课程，按课件、作业附件、课堂实录和笔记查看资料。</p><a id="shot-original" href="screenshots/teaching-library-074.webp">查看原图</a></figcaption>
+      </figure>
     </section>
 
-    <section class="wrap workflow" aria-labelledby="start-heading">
-      <div><h2 id="start-heading">开始使用教学网</h2></div>
-      <ol>
-        <li><strong>打开「设置 → 教学网」</strong><p>使用自己的校园卡账号登录，选择存放课程资料的文件夹。</p></li>
-        <li><strong>在「设置 → AI 模型」配置服务</strong><p>添加硅基流动中国站的密钥用于语音转写，添加 DeepSeek 官方 API Key 用于整理笔记、资料问答和公告摘要。</p></li>
-        <li><strong>同步课程，选一份资料生成笔记</strong><p>在「教学网」选择一份 PDF 或一节回放，生成的笔记会保存到对应课程的笔记文件夹。</p></li>
-      </ol>
-    </section>
-
-    <section id="privacy" class="privacy" aria-labelledby="privacy-heading">
-      <div class="wrap private-layout"><div><p class="eyebrow">数据与隐私</p><h2 id="privacy-heading">课程资料留在你选的文件夹。</h2></div>
-      <div><p>教学网登录信息加密保存在本机。扫描课件和回放关键画面在本机识别。回放音频按段发送给硅基流动中国站的 SenseVoiceSmall 转写，需要在应用内配置自己的 API 密钥。</p><p>整理笔记或对资料提问时，所需文字会发送给你配置的 DeepSeek Flash。回放视频默认在笔记保存后清理，可在设置中保留。</p></div></div>
-    </section>
-
-    <section id="workspace" class="wrap workspace" aria-labelledby="workspace-heading">
-      <div class="section-head"><h2 id="workspace-heading">日常学习与研究工具</h2></div>
-      <div class="workspace-gallery">
-        <a class="workspace-shot" href="screenshots/today.png">
-          <span class="shot-thumb"><img src="screenshots/today.png" width="3062" height="1774" loading="lazy" decoding="async" alt="今天页面的本周日期、今日主线和任务输入框"></span>
-          <span class="shot-caption"><strong>今天</strong><span>查看本周安排，添加今日任务。</span><span class="shot-open">查看大图 <span aria-hidden="true">↗</span></span></span>
-        </a>
-        <a class="workspace-shot" href="screenshots/calendar.png">
-          <span class="shot-thumb"><img src="screenshots/calendar.png" width="3070" height="1780" loading="lazy" decoding="async" alt="日历周视图的活动入口、课表和时间网格"></span>
-          <span class="shot-caption"><strong>日历</strong><span>按周查看日程，添加活动或查看课表。</span><span class="shot-open">查看大图 <span aria-hidden="true">↗</span></span></span>
-        </a>
-        <a class="workspace-shot" href="screenshots/inbox.png">
-          <span class="shot-thumb"><img src="screenshots/inbox.png" width="3066" height="1780" loading="lazy" decoding="async" alt="邮件收件箱中的邮件简报和需要关注、待回复、DDL 与活动等分类"></span>
-          <span class="shot-caption"><strong>邮件收件箱</strong><span>按待回复、截止事项和通知查看邮件。</span><span class="shot-open">查看大图 <span aria-hidden="true">↗</span></span></span>
-        </a>
-      </div>
-      <div class="feature-grid">
-        <article><h3>笔记和项目</h3><p>用页面写笔记、记录灵感和整理项目，也可以用语音速记。</p></article>
-        <article><h3>邮件、日历和待办</h3><p>提取邮件里的会议和截止时间，把课程安排与个人计划放在同一张日历上。</p></article>
-        <article><h3>论文和资料</h3><p>管理论文库、阅读和翻译 PDF，查找与你的研究主题相关的文献。</p></article>
-        <article><h3>终端、Git 和 Codex</h3><p>在桌面应用里使用本机终端、管理代码仓库和查看 Codex 会话。</p></article>
+    <section class="course-work wrap" aria-labelledby="course-heading">
+      <div class="section-head"><h2 id="course-heading">从跟课到复习</h2></div>
+      <div class="scenario-grid">
+        <article><h3>上课前，把讲义收齐</h3><p>自动同步本学期的课件和作业附件，也可以按课程补下往期资料。同步先查「教学内容」，再查「课程讲义」。</p></article>
+        <article><h3>课后，把课堂原话留住</h3><p>选择一节回放，带时间段的转写会单独保存为 Markdown。可以结合配套 PDF 整理课堂笔记，也可以保留回放视频。</p></article>
+        <article><h3>复习时，回查定义和例题</h3><p>在笔记中搜索关键词，或选中文字向 AI 提问。实录笔记可同时参考本节转写，点击答案引用即可回到对应段落。</p></article>
       </div>
     </section>
 
-    <section id="download" class="wrap download" aria-labelledby="download-heading">
-      <div class="section-head"><p class="eyebrow">下载与更新</p><h2 id="download-heading">下载 PKU Learner</h2><p class="feature-scope">从 0.6.11 起，Windows x64、macOS（Apple 芯片和 Intel）以及 Linux x64 均支持北大教学网。Linux 需要系统密钥环来保存登录信息。</p></div>
-      <div id="release" class="release" aria-live="polite"><p>正在读取发布信息。</p></div>
-      <noscript><p>请从 <a href="https://github.com/oceanlby/pku-learner/releases">GitHub Releases</a> 查阅已发布的安装包。</p></noscript>
+    <section id="workspace" class="workspace-band" aria-labelledby="workspace-heading">
+      <div class="wrap workspace">
+        <div class="section-head"><h2 id="workspace-heading">课表之外的学习安排</h2><p>教学网公告里的考试和作业截止时间，确认后就能加入日历。也可以把日常任务、邮件和论文一起整理。</p></div>
+        <div class="workspace-gallery">
+          <a href="screenshots/today.png"><img src="screenshots/today.png" width="3062" height="1774" loading="lazy" decoding="async" alt="今天页面的本周日期和今日任务"><span><strong>今天与待办</strong><small>查看本周安排，记下今日任务。</small></span></a>
+          <a href="screenshots/calendar.png"><img src="screenshots/calendar.png" width="3070" height="1780" loading="lazy" decoding="async" alt="课程日历的时间网格和课表"><span><strong>课表与日历</strong><small>把课程、考试和个人安排放在同一周。</small></span></a>
+          <a href="screenshots/inbox.png"><img src="screenshots/inbox.png" width="3066" height="1780" loading="lazy" decoding="async" alt="邮件收件箱的待回复和截止事项"><span><strong>邮件收件箱</strong><small>从待回复、通知和截止事项里找到重点。</small></span></a>
+        </div>
+        <p class="more-tools">还可用页面整理笔记和项目、阅读翻译论文 PDF，或打开本机终端、Git 仓库与 Codex 会话。</p>
+      </div>
+    </section>
+
+    <section id="privacy" class="guide wrap" aria-labelledby="guide-heading">
+      <div class="guide-intro"><h2 id="guide-heading">开始使用</h2><p>准备好校园卡账号，再选一个存放课程资料的本地文件夹。</p></div>
+      <div class="faq">
+        <details open><summary>第一次怎样同步课程？</summary><p>在「设置 → 教学网」用自己的校园卡账号登录并选择资料目录，进入教学网同步课程。基础同步、附件下载和本地搜索均可直接使用。</p></details>
+        <details><summary>软件免费吗？AI 服务怎样计费？</summary><p>PKU Learner 桌面应用永久免费。使用 AI 功能时，在「设置 → AI 模型」配置自己的 API Key。硅基流动中国站负责语音转写，官方 DeepSeek 用于整理笔记、资料问答和公告摘要。费用及免费额度由对应服务商决定。</p></details>
+        <details><summary>课程资料和登录信息保存在哪里？</summary><p>课件、作业、笔记和保留的视频按课程存入你选择的文件夹。教学网登录信息加密保存在本机。回放视频默认在生成笔记后清理，可以在设置中选择保留。</p></details>
+        <details><summary>整理笔记时，哪些内容会发给 AI？</summary><p>扫描课件和回放关键画面在本机识别。使用语音转写时，音频分段发送给硅基流动。生成笔记、问答或摘要时，相关文字发送给配置的官方 DeepSeek。</p></details>
+      </div>
+    </section>
+
+    <section id="download" class="download-band" aria-labelledby="download-heading">
+      <div class="wrap download">
+        <div class="section-head"><h2 id="download-heading">下载 PKU Learner</h2><p>选择适合这台电脑的安装包。安装后，应用会检查新版本，并在更新前校验文件。</p></div>
+        <div id="release" class="release" aria-live="polite"><p>正在读取发布信息。</p></div>
+        <noscript><p>请从 <a href="https://github.com/oceanlby/pku-learner/releases">GitHub Releases</a> 获取各平台安装包。</p></noscript>
+        <details class="install-help"><summary>安装与平台说明</summary><p>支持 Windows x64、macOS Apple 芯片和 Intel 芯片，以及 Linux x64。Mac 可在苹果菜单的「关于本机」查看芯片。Linux 需要启用并解锁系统密钥环来保存教学网登录信息。</p><p>Windows 安装包未经代码签名，macOS 安装包未经 Apple 公证，首次安装时系统可能提示。可通过公开的 SHA-256 校验文件核对下载结果。</p></details>
+      </div>
     </section>
   </main>
   <footer class="wrap footer"><span>PKU Learner · 由 <a href="https://github.com/oceanlby">oceanlby</a> 维护</span><a href="https://github.com/oceanlby/pku-learner/releases">GitHub Releases</a></footer>

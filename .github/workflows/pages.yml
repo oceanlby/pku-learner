@@ -32,7 +32,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir _site
-          cp index.html site.css downloads.js icon.png latest.json .nojekyll _site/
+          cp index.html site.css downloads.js gallery.js icon.png latest.json .nojekyll _site/
           cp -R screenshots _site/
           if gh api "repos/${GITHUB_REPOSITORY}/releases/latest" > release.json; then
             jq '{tag_name,body,html_url,assets:[.assets[]|{name,size,browser_download_url}]}' release.json > _site/latest.json
